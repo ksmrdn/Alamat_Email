@@ -22,13 +22,8 @@ lintang123@ironman123
 email = input('Masukkan alamat email: ')
 
 # def cekMail(email):
-x = email.split('@')
-# print(x)
-x0 = x[0]
-x1 = x[1]
-y = x1.split('.')
-y0 = y[0]
-y1 = y[1]
+
+
 # print(type(y))
 # print(type(y0))
 # print(type(y1))
@@ -83,16 +78,25 @@ def cekEx(exten):
         state3 = False
         return 0
 
-cekSyb(x0)
-cekHost(y0)
-cekEx(y1)
+x = email.split('@')  
+if '.' in x[1]:
+    x0 = x[0]
+    x1 = x[1]
+    y = x1.split('.')
+    y0 = y[0]
+    y1 = y[1]
+    cekSyb(x0)
+    cekHost(y0)
+    cekEx(y1)
 
-boolList = []
-boolList.append(cekSyb(x0))
-boolList.append(cekHost(y0))
-boolList.append(cekEx(y1))
-print(boolList)
-if 0 in boolList:
-    print('HASIL: EMAIL TIDAK VALID')
+    boolList = []
+    boolList.append(cekSyb(x0))
+    boolList.append(cekHost(y0))
+    boolList.append(cekEx(y1))
+    print(boolList)
+    if 0 in boolList:
+        print('HASIL: EMAIL TIDAK VALID')
+    else:
+        print('HASIL: EMAIL VALID')
 else:
-    print('HASIL: EMAIL VALID')
+    print('HASIL: EMAIL TIDAK VALID')
